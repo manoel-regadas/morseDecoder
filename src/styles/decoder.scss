@@ -1,0 +1,82 @@
+.decoder{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &__header{
+        
+    }
+
+    &__title{
+        text-align: center;
+        font-size:40px;
+    }
+
+    &__input{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__form{
+
+    }
+
+    &__radioInput{
+
+    }
+
+    &__textAreaInput{
+        resize: none;
+        height: 100px;
+        width: 400px;
+        font-size: 20px;
+        padding:10px;
+        
+    }
+    &__send{
+
+    }
+
+    &__translater{
+        height: 200px;
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    &__outPut{
+        box-sizing: border-box;
+        max-width: 500px;
+        height: 90%;
+        background-color: gray;
+        margin: 0 auto;
+        //padding: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+
+
+
+    &__dot{
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: darkgrey;
+        display: block;
+        margin: 5px 5px;
+    }
+
+    &__dash{
+        width: 22px;
+        height: 5px;
+        border-radius: 20%;
+        background-color: darkgrey;
+        display: block;
+        margin: 7px 5px;
+    }
+    
+}
