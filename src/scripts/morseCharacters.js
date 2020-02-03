@@ -1,6 +1,7 @@
 //characters
-const dot = `<i class="decoder__dot"></i>`
-const dash = `<i class="decoder__dash"></i>`
+const dot = `<i class=" decoder__caracter decoder__dot"></i>`
+const dash = `<i class="decoder__caracter decoder__dash"></i>`
+
 const characters = [
     {value: 'A', code: dot+dash},
     {value: 'B', code: dash+dot+dot+dot},
@@ -45,6 +46,6 @@ const characters = [
     {value: '!', code: dot+dot+dash+dash+dot+dot},
 ]
 
-export {characters, dash, dot}; 
+export {characters}; 
 
 
