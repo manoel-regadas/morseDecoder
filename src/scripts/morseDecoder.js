@@ -34,35 +34,46 @@ class Decoder {
       this.output.innerHTML = ' ';
       this.textIntoArray = (this.textArea.value).toUpperCase().split('');
       this.matchTheArrays()
-      this.animation()
+      //this.animation()
       
    }
 
    matchTheArrays() {
-      this.textIntoArray.forEach(element => {
-         for (let character of this.characters) {
-            if (element === character.value) {
-               this.output.insertAdjacentHTML('beforeend', character.code)
-            }
+      let clienteText = {}
+      
+      for(let i = 0; i < this.textIntoArray.length; i++){
+         let letter = this.textIntoArray[i];
+         clienteText[i] = letter
+      }
+      for (let character of this.characters) {
+         if (clienteText[character.value]) {
 
+            this.output.insertAdjacentHTML('beforeend', 
+               `<i data-letter="${character.value}" 
+                     class="decoder__caracterWraper"
+                     style="transition: opacity 1s cubic-bezier(0.62, 0.07, 0.02, 1) 0.7s;">
+                  ${character.code}
+                  </i>`)
          }
-      });
+
+      }
+      
+      
    }
 
-   animation(){
-      this.bit = this.output.querySelectorAll('.decoder__caracter')
-      for(let i = 0; i < this.bit.length; i++){
-         this.timer(i)
-      } 
-   }
+   // animation(){
+   //    this.bit = this.output.querySelectorAll('.decoder__caracter')
+   //    for(let i = 0; i < this.bit.length; i++){
+   //       this.timer(i)
+   //    } 
+   // }
 
-   timer(i){
-     return setInterval(() => {
-         this.bit[i].classList.add('decoder__animation')
-         console.log('ola')
-         return
-      }, i * 100);
-   }
+   // timer(i){
+   //   return setInterval(() => {
+   //       this.bit[i].classList.add('decoder__animation')
+   //       return
+   //    }, i * 100);
+   // }
 }
 
 export default Decoder;
