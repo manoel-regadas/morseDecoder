@@ -1,6 +1,6 @@
 //characters
-const dot = `<i class=" decoder__caracter decoder__dot"></i>`
-const dash = `<i class="decoder__caracter decoder__dash"></i>`
+const dot = `<i class=" decoder__caracter decoder__dot decoder__animation"></i>`
+const dash = `<i class="decoder__caracter decoder__dash decoder__animation"></i>`
 
 const characters = [
     {value: 'A', code: dot+dash},
