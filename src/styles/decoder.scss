@@ -58,7 +58,10 @@
         flex-wrap: wrap;
         padding: 20px;
     }
-
+    
+    &__caracterWraper{
+        display: flex;
+    }
 
 
     &__dot{
@@ -68,7 +71,8 @@
         background-color: darkgrey;
         display: block;
         margin: 5px 5px;
-        display: none;
+        opacity: 0;
+        pointer-events: none;
 
     }
 
@@ -79,16 +83,28 @@
         background-color: darkgrey;
         display: block;
         margin: 7px 5px;
-        display: none;
+        opacity: 0;
+        pointer-events: none;
+        
+    }
+
+    &__nonCharacter{
+        color: red;
+        font-size: 30px;
+        position: relative;
+        font-weight: 600;
+        top: -5px;
+        margin: 0 5px;
+        
     }
 
     &__animation{
-        display: block;
-        animation: appearing 0.2s ease-out;
-        @keyframes appearing {
-            from{opacity: 0; transform: translateY(5px);}
-            to  {opacity: 1; transform: translateY(0px);}
-        }
+        opacity: 1;
+        // animation: appearing 0.2s ease-out;
+        // @keyframes appearing {
+        //     from{opacity: 0; transform: translateY(5px);}
+        //     to  {opacity: 1; transform: translateY(0px);}
+        // }
     }
     
 }

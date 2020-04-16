@@ -26,15 +26,16 @@ class Decoder {
    }
 
    init() {
-      this.button.addEventListener('click', this.getTheText.bind(this))
+      this._textArea.addEventListener('input', this.getTheText.bind(this))
 
    }
 
    getTheText() {
       this.output.innerHTML = ' ';
-      this.textIntoArray = (this.textArea.value).toUpperCase().split('');
+      this.textIntoArray = (this.textArea.value).toUpperCase().replace(/\s/g,'').split('');
+      console.log(this.textIntoArray)
       this.matchTheArrays()
-      //this.animation()
+      this.animation()
       
    }
 
@@ -43,30 +44,38 @@ class Decoder {
       
       for(let i = 0; i < this.textIntoArray.length; i++){
          let letter = this.textIntoArray[i];
-         clienteText[i] = letter
+         if(letter !== ' ') clienteText[`${i}`] = letter
       }
-      for (let character of this.characters) {
-         if (clienteText[character.value]) {
+
+      let clienteTextLength = Object.keys(clienteText).length
+      console.log(clienteText)
+      
+      for(let i = 0; i < clienteTextLength; i++){         
+
+         if(!this.characters[`${clienteText[i]}`]){
+            this.output.insertAdjacentHTML('beforeend', 
+                  `<i data-letter="[NON RECOGNIZED]" 
+                        class="decoder__caracterWraper">
+                     ${this.characters['#'].code}
+                     </i>`)
+         }  else{
 
             this.output.insertAdjacentHTML('beforeend', 
-               `<i data-letter="${character.value}" 
-                     class="decoder__caracterWraper"
-                     style="transition: opacity 1s cubic-bezier(0.62, 0.07, 0.02, 1) 0.7s;">
-                  ${character.code}
-                  </i>`)
-         }
-
+                  `<i data-letter="${this.characters[`${clienteText[i]}`].value}" 
+                        class="decoder__caracterWraper">
+                     ${this.characters[`${clienteText[i]}`].code}
+                     </i>`)
+         }         
       }
-      
-      
    }
 
-   // animation(){
-   //    this.bit = this.output.querySelectorAll('.decoder__caracter')
-   //    for(let i = 0; i < this.bit.length; i++){
-   //       this.timer(i)
-   //    } 
-   // }
+   animation(){
+      this.bit = this.output.querySelectorAll('.decoder__caracter')
+      this.bit.forEach((element, index)=> {
+         element.style = `transition: opacity 1s cubic-bezier(0.62, 0.07, 0.02, 1) ${index}s;`
+         element.classList.add('decoder__animation')
+      });
+   } 
 
    // timer(i){
    //   return setInterval(() => {
