@@ -1,8 +1,6 @@
-import {
-   characters
-} from './morseCharacters';
-// const radioInput = document.querySelector('.decoder__radioInput');
-// const textAreaInput = document.querySelector('dacoder__textAreaInput');
+import { characters} from './morseCharacters';
+import { Tooltip} from './tooltip';
+
 
 class Decoder {
    constructor(textArea, button, output) {
@@ -10,7 +8,8 @@ class Decoder {
       this._button = button;
       this._output = output;
       this._characters = characters;
-
+      this._caracterWraper; 
+      this._toollip = new Tooltip();
    }
    get textArea() {
       return this._textArea
@@ -24,18 +23,29 @@ class Decoder {
    get characters() {
       return characters
    }
+   get caracterWraper(){
+      return this._caracterWraper 
+   }
+   set caracterWraper(value){
+      this._caracterWraper = value 
+   }
+   get tooltip(){
+      return this._toollip
+   }
 
    init() {
       this._textArea.addEventListener('input', this.getTheText.bind(this))
-
    }
 
    getTheText() {
       this.output.innerHTML = ' ';
       this.textIntoArray = (this.textArea.value).toUpperCase().replace(/\s/g,'').split('');
-      console.log(this.textIntoArray)
       this.matchTheArrays()
       this.animation()
+      this.caracterWraper = document.querySelectorAll('.decoder__caracterWraper');
+      this.tooltip.codeWrapper = this.caracterWraper
+      this.tooltip.init()
+      
       
    }
 
@@ -48,7 +58,6 @@ class Decoder {
       }
 
       let clienteTextLength = Object.keys(clienteText).length
-      console.log(clienteText)
       
       for(let i = 0; i < clienteTextLength; i++){         
 
@@ -67,6 +76,7 @@ class Decoder {
                      </i>`)
          }         
       }
+
    }
 
    animation(){
