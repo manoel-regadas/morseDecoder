@@ -29,18 +29,18 @@ class Tooltip {
         toolTip.innerText = value.getAttribute('data-letter')
         toolTip.classList.add('decoder__toolTip')
         value.appendChild(toolTip)
-        value.style.backgroundColor = 'green'
+        value.classList.add('selected')
         
     }
 
     desactiveToolip({target}){
         this.removeTooltip(target)
-        target.style.backgroundColor = 'transparent'
+        
     }
 
     removeTooltip(value){
         value.lastChild.remove()
-        
+        value.classList.remove('selected')
        
     }
 }
