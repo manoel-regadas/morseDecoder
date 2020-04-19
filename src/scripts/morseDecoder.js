@@ -3,12 +3,13 @@ import { Tooltip} from './tooltip';
 
 
 class Decoder {
-   constructor(textArea, button, output) {
+   constructor(textArea, button, output, deleteButton) {
       this._textArea = textArea;
       this._button = button;
       this._output = output;
       this._characters = characters;
-      this._caracterWraper; 
+      this._characterWraper; 
+      this._deleteButton = deleteButton
       this._toollip = new Tooltip();
    }
    get textArea() {
@@ -23,11 +24,16 @@ class Decoder {
    get characters() {
       return characters
    }
-   get caracterWraper(){
-      return this._caracterWraper 
+   get characterWraper(){
+      return this._characterWraper 
    }
-   set caracterWraper(value){
-      this._caracterWraper = value 
+
+   get deleteButton(){
+      return this._deleteButton
+   }
+
+   set characterWraper(value){
+      this._characterWraper = value 
    }
    get tooltip(){
       return this._toollip
@@ -35,17 +41,17 @@ class Decoder {
 
    init() {
       this._textArea.addEventListener('input', this.getTheText.bind(this))
+      
+      this.deleteButton.addEventListener('click', this.deleteText.bind(this))
    }
 
    getTheText() {
       this.output.innerHTML = ' ';
       this.textIntoArray = (this.textArea.value).toUpperCase().replace(/\s/g,'').split('');
       this.matchTheArrays()
-      this.animation()
-      this.caracterWraper = document.querySelectorAll('.decoder__caracterWraper');
-      this.tooltip.codeWrapper = this.caracterWraper
+      this.characterWraper = document.querySelectorAll('.decoder__characterWraper');
+      this.tooltip.codeWrapper = this.characterWraper
       this.tooltip.init()
-      
       
    }
 
@@ -64,35 +70,29 @@ class Decoder {
          if(!this.characters[`${clienteText[i]}`]){
             this.output.insertAdjacentHTML('beforeend', 
                   `<i data-letter="[NON RECOGNIZED]" 
-                        class="decoder__caracterWraper">
+                        class="decoder__characterWraper">
                      ${this.characters['#'].code}
                      </i>`)
          }  else{
 
             this.output.insertAdjacentHTML('beforeend', 
                   `<i data-letter="${this.characters[`${clienteText[i]}`].value}" 
-                        class="decoder__caracterWraper">
+                        class="decoder__characterWraper">
                      ${this.characters[`${clienteText[i]}`].code}
                      </i>`)
          }         
       }
-
    }
 
-   animation(){
-      this.bit = this.output.querySelectorAll('.decoder__caracter')
-      this.bit.forEach((element, index)=> {
-         element.style = `transition: opacity 1s cubic-bezier(0.62, 0.07, 0.02, 1) ${index}s;`
-         element.classList.add('decoder__animation')
-      });
-   } 
+   deleteText(){
+      this.textArea.value = ''
+      this.output.innerHTML = ''
+   }
 
-   // timer(i){
-   //   return setInterval(() => {
-   //       this.bit[i].classList.add('decoder__animation')
-   //       return
-   //    }, i * 100);
-   // }
+   
+
+   
+   
 }
 
 export default Decoder;
