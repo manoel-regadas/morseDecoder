@@ -1,22 +1,33 @@
 $color1 : #D9D9D9;
 $color2 : #C2C2C2;
-$color3 : #41B6B6;
 
+$color3 : #FF817B;
+$color4 : #FFAAA6;
+
+$gradientColor :linear-gradient(241.48deg, #FFAAA6 22.34%, #FF817B 73.86%);
 
 .decoder{
     height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-   // flex-direction: column;
+    justify-content: space-between;
+    flex-direction: column;
 
     &__header{
-        
+        width: 100%;
+        padding:54px 0 0 107px ;
     }
 
     &__title{
-        text-align: center;
-        font-size:40px;
+        font-size:56px;
+        font-family: 'Nova Round', cursive;
+        color: $color3;
+    }
+
+    &__subTitle{
+        font-family: sans-serif;
+        font-size: 18px;
+        font-weight: 100;
+        color: $color1;
     }
 
     &__input{
@@ -24,9 +35,8 @@ $color3 : #41B6B6;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 60%;
-        height: 100%;
-        margin: 0 30px;
+        width: 100%;
+
     }
 
     &__inputWrapper{
@@ -36,18 +46,17 @@ $color3 : #41B6B6;
     &__textAreaInput{
         resize: none;
         max-width: 100%;
-        width: 700px;
+        width: 600px;
         max-height: 100%;
-        height: 250px;
-        font-size: 20px;
-        padding:20px;
-        box-sizing: border-box;
-        border-radius: 10px;
-        border-color: $color1;
+        height: 300px;
+        font-size: 16px;
+        padding:30px 38px;
+        border:none;
         color: $color2;
         font-weight: 300;
         outline: none;
-
+        box-shadow: 0px 0px 30px rgba(75, 75, 75, 0.15);
+        
         &::placeholder{
             color: $color2;
             font-weight: 200;
@@ -58,10 +67,11 @@ $color3 : #41B6B6;
 
     &__deleteButton{
         font-family: sans-serif;
+        font-weight: 100;
         color: $color3;
         position: absolute;
-        bottom:15px;
-        right: 15px;
+        bottom: 20px;
+        right: 30px;
         cursor: pointer;
         
     }
@@ -71,18 +81,27 @@ $color3 : #41B6B6;
     }
 
     &__translater{
-        height: 100%;
-        width: 40%;
+        height: 380px;
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: $color3;
+        flex-direction: column;
+        background: $gradientColor;
+        border-top-left-radius:40px;
+        border-top-right-radius: 40px;
+    }
+
+    &__instructions{
+        color: white;
+        font-family: sans-serif;
+        font-size: 22px;
+        font-weight: 100;
     }
 
     &__outPut{
-        box-sizing: border-box;
         max-width: 500px;
-        margin: 0 auto;
+        margin: 70px auto 0 auto;
         //padding: 30px;
         display: flex;
         flex-wrap: wrap;
@@ -93,7 +112,6 @@ $color3 : #41B6B6;
     &__characterWraper{
         display: flex;
         position: relative;
-        box-sizing: border-box;
         cursor: pointer;
         
         &.selected{
@@ -152,8 +170,20 @@ $color3 : #41B6B6;
         font-family: sans-serif;   
         //width: 129px;
         //height: 161px;
-        padding: 58px 51px;
-        font-size: 35px;
+        padding: 46px 37px;
+        font-weight: 200;
+        font-size: 63px;
+        animation: showToolip 0.2s;
+        
+        @keyframes showToolip {
+            from{top: -170px; 
+                 opacity: 0;
+                }
+            to  {top: -190px;
+                 opacity: 1;
+                }
+        }
+
 
         &::before{
             content: '';
