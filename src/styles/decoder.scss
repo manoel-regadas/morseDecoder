@@ -150,13 +150,14 @@ $gradientColor :linear-gradient(241.48deg, #FFAAA6 22.34%, #FF817B 73.86%);
     }
 
     &__nonCharacter{
-        color: red;
+        color: white;
         font-size: 30px;
         position: relative;
         font-weight: 600;
         top: -5px;
         margin: 0 5px;
         opacity: 1;
+        pointer-events:none;
     }
 
     &__animation{
