@@ -3,7 +3,7 @@ import { Tooltip} from './tooltip';
 
 
 class Decoder {
-   constructor(textArea, button, output, deleteButton) {
+   constructor(textArea, button, output, deleteButton, changeInputButton) {
       this._textArea = textArea;
       this._button = button;
       this._output = output;
@@ -11,7 +11,10 @@ class Decoder {
       this._characterWraper; 
       this._deleteButton = deleteButton
       this._toollip = new Tooltip();
+      this._changeInputButton = changeInputButton;
+      this.isClicked = false
    }
+
    get textArea() {
       return this._textArea
    }
@@ -21,11 +24,17 @@ class Decoder {
    get output() {
       return this._output
    }
+
    get characters() {
       return characters
    }
+
    get characterWraper(){
       return this._characterWraper 
+   }
+
+   get changeInputButton(){
+      return this._changeInputButton
    }
 
    get deleteButton(){
@@ -41,8 +50,10 @@ class Decoder {
 
    init() {
       this._textArea.addEventListener('input', this.getTheText.bind(this))
-      
+
       this.deleteButton.addEventListener('click', this.deleteText.bind(this))
+
+      this.changeInputButton.addEventListener('click', this.textToCode.bind(this))
    }
 
    getTheText() {
@@ -89,10 +100,24 @@ class Decoder {
       this.output.innerHTML = ''
    }
 
-   
+   textToCode(){
+      if(!this.isClicked){
+         this.changeInputButton.childNodes[0].innerText = 'Change to text mode'
+         this.textArea.placeholder = "Type here the message you want to encrpyt (just '.' or '-')"
+         this.textArea.value = ''
+         this.output.innerHTML = ''
+         this.isClicked = true
+      } else{ 
+         this.changeInputButton.childNodes[0].innerText = 'Change to code mode'
+         this.textArea.placeholder = 'Type here the message you want to encrpyt (max 64 chars)'
+         this.textArea.value = ''
+         this.output.innerHTML = ''
+         this.isClicked = false
+      }
+      
+   }
 
-   
-   
+
 }
 
 export default Decoder;
