@@ -3,6 +3,7 @@ $color2 : #C2C2C2;
 
 $color3 : #FF817B;
 $color4 : #FFAAA6;
+$color5 : #FF827C;
 
 $gradientColor :linear-gradient(241.48deg, #FFAAA6 22.34%, #FF817B 73.86%);
 
@@ -36,6 +37,7 @@ $gradientColor :linear-gradient(241.48deg, #FFAAA6 22.34%, #FF817B 73.86%);
         justify-content: center;
         align-items: center;
         width: 100%;
+        margin-top: 36px;
 
     }
 
@@ -84,29 +86,34 @@ $gradientColor :linear-gradient(241.48deg, #FFAAA6 22.34%, #FF817B 73.86%);
         height: 380px;
         width: 100%;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-evenly;
+       // flex-direction: column;
         background: $gradientColor;
         border-top-left-radius:40px;
         border-top-right-radius: 40px;
+        margin-top: 110px;
+        padding: 50px 0;
     }
 
     &__instructions{
         color: white;
         font-family: sans-serif;
-        font-size: 22px;
+        font-size: 18px;
         font-weight: 100;
+        max-width: 212px;
+        line-height: 24px;
     }
 
     &__outPut{
-        max-width: 500px;
-        margin: 70px auto 0 auto;
+        max-width: 600px;
+        width: 100%;
+        //margin: 70px auto 0 auto;
         //padding: 30px;
         display: flex;
         flex-wrap: wrap;
         align-items: flex-start;
-        padding: 20px;
+      
     }
     
     &__characterWraper{
@@ -197,5 +204,16 @@ $gradientColor :linear-gradient(241.48deg, #FFAAA6 22.34%, #FF817B 73.86%);
             border-left: 60px solid white;
         }
     }
+
+    &__copyButton{
+        color: white;
+        font-family: sans-serif;
+        font-size: 18px;
+        background-color: $color5;
+        font-weight: 500;
+        border-radius: 10px;
+        padding: 44px;
+        cursor: pointer;
+    }
     
-}
+} 
