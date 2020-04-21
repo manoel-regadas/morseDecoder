@@ -143,7 +143,8 @@ class Decoder {
       })
       let arrToStrind = codeArr.join('')
       this._cheatingInput.value = arrToStrind
-      
+      this._cheatingInput.select()
+      document.execCommand('Copy');
    }
 
 
