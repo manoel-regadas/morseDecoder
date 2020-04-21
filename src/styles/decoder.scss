@@ -239,4 +239,9 @@ $gradientColor :linear-gradient(241.48deg, #FFAAA6 22.34%, #FF817B 73.86%);
         cursor: pointer;
     }
     
+    &__cheating{
+        position: absolute;    
+        bottom: 0;
+        //visibility: hidden;
+    }
 } 
