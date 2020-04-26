@@ -97,7 +97,7 @@ class Decoder {
 
          if(!this.characters[`${clienteText[i]}`] || this.characters[`${clienteText[i]}`].value == '#'){
             this.output.insertAdjacentHTML('beforeend', 
-                  `<i data-letter="undefined" 
+                  `<i data-letter="#" 
                         class="decoder__characterWraper">
                      ${this.characters['#'].code}
                      </i>`)

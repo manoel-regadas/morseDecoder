@@ -26,7 +26,7 @@ class Tooltip {
 
     createTooltip(value){
         let toolTip = document.createElement('I');
-        toolTip.innerText = value.getAttribute('data-letter')
+        toolTip.innerHTML = `<i>${value.getAttribute('data-letter')}</i>`
         toolTip.classList.add('decoder__toolTip')
         value.appendChild(toolTip)
         value.classList.add('selected')

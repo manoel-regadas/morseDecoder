@@ -4,6 +4,7 @@ $color2 : #C2C2C2;
 $color3 : #FF817B;
 $color4 : #FFAAA6;
 $color5 : #FF827C;
+$color5 : #FF6861;
 
 $gradientColor :linear-gradient(241.48deg, #FFAAA6 22.34%, #FF817B 73.86%);
 
@@ -16,19 +17,34 @@ $gradientColor :linear-gradient(241.48deg, #FFAAA6 22.34%, #FF817B 73.86%);
     &__header{
         width: 100%;
         padding:54px 0 0 107px ;
+
+        @media screen and (max-width: 900px){
+            padding:0;
+            margin:40px 0 auto;
+        }
     }
 
     &__title{
         font-size:56px;
         font-family: 'Nova Round', cursive;
         color: $color3;
+
+        @media screen and (max-width: 900px){
+            text-align: center;
+        }
+
     }
 
     &__subTitle{
-        font-family: sans-serif;
+        font-family: 'Roboto', sans-serif;;
         font-size: 18px;
         font-weight: 100;
         color: $color1;
+
+        @media screen and (max-width: 900px){
+            text-align: center;
+            margin-top: 8px;
+        } 
     }
 
     &__inputWrapper{
@@ -36,6 +52,11 @@ $gradientColor :linear-gradient(241.48deg, #FFAAA6 22.34%, #FF817B 73.86%);
         display: flex;
         flex-direction: column;
         align-items: flex-end;
+
+        @media screen and (max-width: 900px){
+            width: 90%;
+            align-items: center;
+        } 
     }
 
     &__input{
@@ -57,8 +78,13 @@ $gradientColor :linear-gradient(241.48deg, #FFAAA6 22.34%, #FF817B 73.86%);
         align-items: center;
         cursor: pointer;
 
+        @media screen and (max-width: 900px){
+            width: 100%;
+            height: 56px;
+        } 
+
         p{
-            font-family: sans-serif;
+            font-family: 'Roboto', sans-serif;;
             text-transform: uppercase;
             font-size: 14px;
             font-weight: 700;
@@ -81,6 +107,12 @@ $gradientColor :linear-gradient(241.48deg, #FFAAA6 22.34%, #FF817B 73.86%);
         font-weight: 300;
         outline: none;
         box-shadow: 0px 0px 30px rgba(75, 75, 75, 0.15);
+
+        @media screen and (max-width: 900px){
+            width: 100%;
+            align-items: center;
+            height: 224px;
+        } 
         
         &::placeholder{
             color: $color2;
@@ -91,7 +123,7 @@ $gradientColor :linear-gradient(241.48deg, #FFAAA6 22.34%, #FF817B 73.86%);
     }
 
     &__deleteButton{
-        font-family: sans-serif;
+        font-family: 'Roboto', sans-serif;;
         font-weight: 100;
         color: $color3;
         position: absolute;
@@ -116,16 +148,33 @@ $gradientColor :linear-gradient(241.48deg, #FFAAA6 22.34%, #FF817B 73.86%);
         border-top-right-radius: 40px;
         margin-top: 110px;
         padding: 80px 15px 20px;
+
+        @media screen and (max-width: 900px){
+            margin-top: 50px;
+            flex-direction: column;
+            border-top-left-radius:20px;
+            border-top-right-radius: 20px;
+            padding: 40px 0 0;
+            justify-content: space-between;
+            align-items: center;
+
+        } 
     }
 
     &__instructions{
         color: white;
-        font-family: sans-serif;
+        font-family: 'Roboto', sans-serif;;
         font-size: 18px;
         font-weight: 100;
         max-width: 212px;
         line-height: 24px;
         margin: 0 15px;
+
+        @media screen and (max-width: 900px){
+            text-align: center;
+            width: 90%;
+            max-width: 100%;
+        }
     }
 
     &__outPut{
@@ -136,6 +185,13 @@ $gradientColor :linear-gradient(241.48deg, #FFAAA6 22.34%, #FF817B 73.86%);
         display: flex;
         flex-wrap: wrap;
         align-items: flex-start;
+        align-items: center;
+
+        @media screen and (max-width: 900px){
+            width: 90%;
+            padding: 20px 0px 20px;
+            margin: 0;
+        }
       
     }
     
@@ -173,25 +229,44 @@ $gradientColor :linear-gradient(241.48deg, #FFAAA6 22.34%, #FF817B 73.86%);
     }
 
     &__nonCharacter{
-        color: white;
-        font-size: 30px;
+        height: 15px;
+        width: 4px;
+        border-radius: 20%;
+        background-color: white;
+        display: block;
+        margin: 5px 10px;
+        pointer-events: none;
+        transform: rotate(50deg);
         position: relative;
-        font-weight: 600;
-        top: -5px;
-        margin: 0 5px;
-        opacity: 1;
-        pointer-events:none;
+
+        &:after{
+            content: '';
+            width: 15px;
+            height: 4px;
+            border-radius: 20%;
+            background-color: white;
+            display: block;
+            margin: 7px 8px;
+            pointer-events: none;
+            transform: rotate(0deg);
+            position: absolute;
+            top: -2px;
+            left: -13px;
+        }
+
     }
 
     &__whiteSpace{
-        color: white;
-        font-size: 30px;
+        height: 24px;
+        width: 4px;
+        border-radius: 20%;
+        background-color: white;
+        display: block;
+        margin: 7px 8px;
+        pointer-events: none;
+        transform: rotate(26deg);
         position: relative;
-        font-weight: 600;
-        top: -5px;
-        margin: 0 5px;
-        opacity: 1;
-        pointer-events:none;
+
     }
 
     &__animation{
@@ -209,13 +284,15 @@ $gradientColor :linear-gradient(241.48deg, #FFAAA6 22.34%, #FF817B 73.86%);
         z-index: 3;
         pointer-events: none;
         text-align: center;
-        font-family: sans-serif;   
-        //width: 129px;
-        //height: 161px;
-        padding: 46px 37px;
+        font-family: 'Roboto', sans-serif;;   
+        width:100px;
+        height:155px;
         font-weight: 200;
         font-size: 63px;
         animation: showToolip 0.2s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         
         @keyframes showToolip {
             from{top: -170px; 
@@ -238,11 +315,15 @@ $gradientColor :linear-gradient(241.48deg, #FFAAA6 22.34%, #FF817B 73.86%);
             border-bottom: 60px solid transparent;
             border-left: 60px solid white;
         }
+
+        i{
+            z-index: 2;
+        }
     }
 
     &__copyButton{
         color: white;
-        font-family: sans-serif;
+        font-family: 'Roboto', sans-serif;;
         font-size: 18px;
         background-color: $color5;
         font-weight: 500;
@@ -260,6 +341,24 @@ $gradientColor :linear-gradient(241.48deg, #FFAAA6 22.34%, #FF817B 73.86%);
             transform: scale(0.95);
         }
 
+        @media screen and (max-width: 900px){
+            height: 56px;
+            margin: 0;
+            padding: 20px 0 0;
+            text-align: center;
+            width: 100%;
+            border-radius: 0;
+            background-color: $color5;
+
+            &:hover{
+                border-radius: 0;
+            }
+    
+            &:active{
+                transform: scale(0.99);
+            }
+
+        } 
 
     }
     

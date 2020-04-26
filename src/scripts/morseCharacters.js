@@ -1,13 +1,14 @@
 //characters
 const dot = `<i class=" decoder__caracter decoder__dot "></i>`
 const dash = `<i class="decoder__caracter decoder__dash "></i>`
-const nonCharacter = `<i class="decoder__caracter decoder__nonCharacter ">#</i>`
-const whiteSpace = `<i class="decoder__caracter decoder__whiteSpace ">/</i>`
+const nonCharacter = `<i class="decoder__caracter decoder__nonCharacter "></i>`
+const whiteSpace = `<i class="decoder__caracter decoder__whiteSpace "></i>`
 
 const characters = {
     'A':{value:'A', code: dot+dash, codeCharacter:'.-'},
     'B':{value:'B', code: dash+dot+dot+dot, codeCharacter:'-...'},
     'C':{value:'C', code: dash+dot+dash+dot, codeCharacter:'-.-.'},
+    'Ç':{value:'C', code: dash+dot+dash+dot, codeCharacter:'-.-.'},
     'D':{value:'D', code: dash+dot+dot, codeCharacter:'-..'},
     'E':{value:'E', code: dot, codeCharacter:'.'},
     'F':{value:'F', code: dot+dot+dash+dot, codeCharacter:'..-.'},
