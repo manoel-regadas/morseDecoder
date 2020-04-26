@@ -2,6 +2,7 @@
 const dot = `<i class=" decoder__caracter decoder__dot "></i>`
 const dash = `<i class="decoder__caracter decoder__dash "></i>`
 const nonCharacter = `<i class="decoder__caracter decoder__nonCharacter ">#</i>`
+const whiteSpace = `<i class="decoder__caracter decoder__whiteSpace ">/</i>`
 
 const characters = {
     'A':{value:'A', code: dot+dash, codeCharacter:'.-'},
@@ -47,7 +48,8 @@ const characters = {
     '!':{value:'!', code: dot+dot+dash+dash+dot+dot, codeCharacter:'..--..'},
 
     //error
-    '#':{value:'#', code: nonCharacter}
+    ' ':{value:'/', code: whiteSpace, codeCharacter:'/'},
+    '#':{value:'#', code: nonCharacter, codeCharacter:''}
 }
 
 export {characters}; 

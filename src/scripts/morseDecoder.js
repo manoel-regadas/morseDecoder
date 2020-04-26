@@ -75,7 +75,7 @@ class Decoder {
 
    getTheText() {
       this.output.innerHTML = ' ';
-      this.textIntoArray = (this.textArea.value).toUpperCase().replace(/\s/g,'').split('');
+      this.textIntoArray = (this.textArea.value).toUpperCase().split('');
       this.matchTheArrays()
       this.characterWraper = document.querySelectorAll('.decoder__characterWraper');
       this.tooltip.codeWrapper = this.characterWraper
@@ -88,7 +88,7 @@ class Decoder {
       
       for(let i = 0; i < this.textIntoArray.length; i++){
          let letter = this.textIntoArray[i];
-         if(letter !== ' ') clienteText[`${i}`] = letter
+         clienteText[`${i}`] = letter
       }
 
       let clienteTextLength = Object.keys(clienteText).length
@@ -101,7 +101,9 @@ class Decoder {
                         class="decoder__characterWraper">
                      ${this.characters['#'].code}
                      </i>`)
-         }  else{
+         }  
+
+         else{
             
             this.output.insertAdjacentHTML('beforeend', 
                   `<i data-letter="${this.characters[`${clienteText[i]}`].value}" 

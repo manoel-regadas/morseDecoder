@@ -106,7 +106,7 @@ $gradientColor :linear-gradient(241.48deg, #FFAAA6 22.34%, #FF817B 73.86%);
     }
 
     &__translater{
-        height: 380px;
+        height: 100%;
         width: 100%;
         display: flex;
         align-items: flex-start;
@@ -115,7 +115,7 @@ $gradientColor :linear-gradient(241.48deg, #FFAAA6 22.34%, #FF817B 73.86%);
         border-top-left-radius:40px;
         border-top-right-radius: 40px;
         margin-top: 110px;
-        padding: 50px 0;
+        padding: 80px 15px 20px;
     }
 
     &__instructions{
@@ -125,12 +125,13 @@ $gradientColor :linear-gradient(241.48deg, #FFAAA6 22.34%, #FF817B 73.86%);
         font-weight: 100;
         max-width: 212px;
         line-height: 24px;
+        margin: 0 15px;
     }
 
     &__outPut{
         max-width: 600px;
         width: 100%;
-        //margin: 70px auto 0 auto;
+        margin: 0 15px;
         //padding: 30px;
         display: flex;
         flex-wrap: wrap;
@@ -172,6 +173,17 @@ $gradientColor :linear-gradient(241.48deg, #FFAAA6 22.34%, #FF817B 73.86%);
     }
 
     &__nonCharacter{
+        color: white;
+        font-size: 30px;
+        position: relative;
+        font-weight: 600;
+        top: -5px;
+        margin: 0 5px;
+        opacity: 1;
+        pointer-events:none;
+    }
+
+    &__whiteSpace{
         color: white;
         font-size: 30px;
         position: relative;
@@ -234,14 +246,26 @@ $gradientColor :linear-gradient(241.48deg, #FFAAA6 22.34%, #FF817B 73.86%);
         font-size: 18px;
         background-color: $color5;
         font-weight: 500;
-        border-radius: 10px;
+        border-radius: 10px 10px 10px 10px;
         padding: 44px;
         cursor: pointer;
+        margin: 0 15px;
+        transition: all .2s;
+
+        &:hover{
+            border-radius: 20px;
+        }
+
+        &:active{
+            transform: scale(0.95);
+        }
+
+
     }
     
     &__cheating{
         position: absolute;    
         bottom: 0;
-        visibility: hidden;
+        opacity: 0;
     }
 } 
