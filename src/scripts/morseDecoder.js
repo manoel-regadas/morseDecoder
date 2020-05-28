@@ -1,4 +1,4 @@
-import { characters} from './morseCharacters';
+import { characters, code} from './morseCharacters';
 import { Tooltip} from './tooltip';
 
 
@@ -8,6 +8,7 @@ class Decoder {
       this._button = button;
       this._output = output;
       this._characters = characters;
+      this._code = code;
       this._characterWraper; 
       this._deleteButton = deleteButton
       this._toollip = new Tooltip();
@@ -33,6 +34,10 @@ class Decoder {
 
    get characterWraper(){
       return this._characterWraper 
+   }
+
+   get code(){
+      return this._code
    }
 
    get changeInputButton(){
@@ -74,20 +79,50 @@ class Decoder {
    }
 
    getTheText() {
-      this.output.innerHTML = ' ';
-      this.textIntoArray = (this.textArea.value).toUpperCase().split('');
-      this.matchTheArrays()
-      this.characterWraper = document.querySelectorAll('.decoder__characterWraper');
-      this.tooltip.codeWrapper = this.characterWraper
-      this.tooltip.init()
+      if(!this.isClicked){
+         this.output.innerHTML = ' ';
+         this.textOrCodeIntoArray = (this.textArea.value).toUpperCase().split('');
+         this.matchLetter()
+         this.characterWraper = document.querySelectorAll('.decoder__characterWraper');
+         this.tooltip.codeWrapper = this.characterWraper
+         this.tooltip.init()
+      } else{
+         this.output.innerHTML = ' ';
+         this.textOrCodeIntoArray = (this.textArea.value).toUpperCase().split('');
+         this.matchCode()
+      }
       
    }
 
-   matchTheArrays() {
+   matchCode(){
       let clienteText = {}
       
-      for(let i = 0; i < this.textIntoArray.length; i++){
-         let letter = this.textIntoArray[i];
+      for(let i = 0; i < this.textOrCodeIntoArray.length; i++){
+         let letter = this.textOrCodeIntoArray[i];
+         clienteText[`${i}`] = letter
+      }
+      console.log(clienteText)
+      
+      let clienteTextLength = Object.keys(clienteText).length
+      let text = ''
+      for(let i = 0; i < clienteTextLength; i++){         
+
+         if(this.code[`${clienteText[i]}`]){
+            text += `${this.code[`${clienteText[i]}`].value}`
+         } else{
+            text += ' '
+         }
+
+      }
+      console.log(text)
+      
+   }
+
+   matchLetter() {
+      let clienteText = {}
+      
+      for(let i = 0; i < this.textOrCodeIntoArray.length; i++){
+         let letter = this.textOrCodeIntoArray[i];
          clienteText[`${i}`] = letter
       }
 

@@ -2,7 +2,7 @@
 const dot = `<i class=" decoder__caracter decoder__dot "></i>`
 const dash = `<i class="decoder__caracter decoder__dash "></i>`
 const nonCharacter = `<i class="decoder__caracter decoder__nonCharacter "></i>`
-const whiteSpace = `<i class="decoder__caracter decoder__whiteSpace "></i>`
+const whiteSpace = `<i class="decoder__caracter decoder__whiteSpace "> </i>`
 
 const characters = {
     'A':{value:'A', code: dot+dash, codeCharacter:'.-'},
@@ -49,9 +49,56 @@ const characters = {
     '!':{value:'!', code: dot+dot+dash+dash+dot+dot, codeCharacter:'..--..'},
 
     //error
-    ' ':{value:'/', code: whiteSpace, codeCharacter:'/'},
+    ' ':{value:' ', code: whiteSpace, codeCharacter:' '},
     '#':{value:'#', code: nonCharacter, codeCharacter:''}
 }
+const code = {
+    '.-':{value:'A', },
+    '-...':{value:'B',},
+    '-.-.':{value:'C', },
+    '-..':{value:'D', },
+    '.':{value:'E', },
+    '..-.':{value:'F', },
+    '--.':{value:'G', },
+    '....':{value:'H', },
+    '..':{value:'I', },
+    '.---':{value:'J', },
+    '-.-':{value:'K', },
+    '.-..':{value:'L', },
+    '--':{value:'M', },
+    '-.':{value:'N', },
+    '---':{value:'O', },
+    '.--.':{value:'P', },
+    '--.-':{value:'Q', },
+    '.-.':{value:'R', },
+    '...':{value:'S', },
+    '-':{value:'T', },
+    '..-':{value:'U', },
+    '...-':{value:'V', },
+    '.--':{value:'W', },
+    '-..-':{value:'X', },
+    '-.--':{value:'Y', },
+    '--..':{value:'Z', },
+    //number 
+    '-----':{value:'A', },
+    '.----':{value:'B', },
+    '..---':{value:'C', },
+    '...--':{value:'3', },
+    '....-':{value:'4', code: dot+dot+dot+dot+dash, codeCharacter:'....-'},
+    '.....':{value:'5', code: dot+dot+dot+dot+dot, codeCharacter:'.....'},
+    '-....':{value:'6', code: dash+dot+dot+dot+dot, codeCharacter:'-....'},
+    '--...':{value:'7', code: dash+dash+dot+dot+dot, codeCharacter:'--...'},
+    '---..':{value:'8', code: dash+dash+dash+dot+dot, codeCharacter:'---..'},
+    '----.':{value:'9', code: dash+dash+dash+dash+dot, codeCharacter:'----.'},
 
-export {characters}; 
+    '.-.-.-':{value:'.', code: dot+dash+dot+dash+dot+dash, codeCharacter:'.-.-.-'},
+    '--..--':{value:',', code: dash+dash+dot+dot+dash+dash, codeCharacter:'--..--'},
+    '..--..':{value:'!', code: dot+dot+dash+dash+dot+dot, codeCharacter:'..--..'},
+
+    //error
+    ' ':{value:' ', code: whiteSpace, codeCharacter:'/'},
+    //'#':{value:'#', code: nonCharacter, codeCharacter:''}
+}
+
+export {characters, code}; 
 
