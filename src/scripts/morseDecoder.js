@@ -82,13 +82,15 @@ class Decoder {
       if(!this.isClicked){
          this.output.innerHTML = ' ';
          this.textOrCodeIntoArray = (this.textArea.value).toUpperCase().split('');
+         console.log(this.textOrCodeIntoArray)
          this.matchLetter()
          this.characterWraper = document.querySelectorAll('.decoder__characterWraper');
          this.tooltip.codeWrapper = this.characterWraper
          this.tooltip.init()
       } else{
          this.output.innerHTML = ' ';
-         this.textOrCodeIntoArray = (this.textArea.value).toUpperCase().split('');
+         this.textOrCodeIntoArray = (this.textArea.value).toUpperCase().split(' ');
+         console.log(this.textOrCodeIntoArray)
          this.matchCode()
       }
       
@@ -114,7 +116,7 @@ class Decoder {
          }
 
       }
-      console.log(text)
+      this.output.innerText = text
       
    }
 
@@ -132,7 +134,7 @@ class Decoder {
 
          if(!this.characters[`${clienteText[i]}`] || this.characters[`${clienteText[i]}`].value == '#'){
             this.output.insertAdjacentHTML('beforeend', 
-                  `<i data-letter="#" 
+                  `</i><i data-letter="#" 
                         class="decoder__characterWraper">
                      ${this.characters['#'].code}
                      </i>`)
@@ -145,7 +147,7 @@ class Decoder {
                      data-code="${this.characters[`${clienteText[i]}`].codeCharacter}"   
                      class="decoder__characterWraper">
                      ${this.characters[`${clienteText[i]}`].code}
-                     </i>`)
+                     </i> <i data-letter="' '"data-code="&nbsp"></i>`)
          }         
       }
    }
